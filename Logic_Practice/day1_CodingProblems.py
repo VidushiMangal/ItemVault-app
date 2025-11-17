@@ -66,10 +66,10 @@ def second_largest():
             sec_largest=i
     print(f"largest is :: {largest}\n second largest is :: {sec_largest}")
 
-    
-#reverse_str()
-#frequency_char()
-#remove_duplicate()
-# merge_dict()
-# even_odd_count()
+   
+reverse_str()
+frequency_char()
+remove_duplicate()
+merge_dict()
+even_odd_count()
 second_largest()
