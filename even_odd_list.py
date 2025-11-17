@@ -1,13 +1,10 @@
-evenno=[]
-oddno=[]
-sum=0
+even_list=[]
+odd_list=[]
 for i in range(10):
-    x=int(input("Enter a whole number"))
-    sum = sum + x
-    if x%2==0:
-        evenno.append(x)
+    no=int(input("Enter a whole number to check(Even/Odd):::"))
+    if no % 2==0:
+        even_list.append(no)
     else:
-        oddno.append(x)
-print(f"Even no are :  {evenno}")
-print(f"Odd no are :  {oddno}")
-print(f"sum = {sum}")
+        odd_list.append(no)
+print(f"Even numbers are :: {even_list}")
+print(f"Odd numbers are :: {odd_list}")
