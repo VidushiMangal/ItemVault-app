@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float
 from app.database import Base
 
-class ItemDB(Base):
+class ItemDB(Base): # SQLALchemy model = Database Layer
     __tablename__ = "items"
 
     id = Column(Integer, primary_key=True, index=True)
