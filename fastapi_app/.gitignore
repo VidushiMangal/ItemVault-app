@@ -1,5 +1,18 @@
-.env
-venv/
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+env/
+venv/
+ENV/
+.venv/
+
+# dotenv
+.env
+
+# VSCode
+.vscode/
+
+# mac
 .DS_Store
