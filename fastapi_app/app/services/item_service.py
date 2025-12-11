@@ -3,6 +3,10 @@ from fastapi import HTTPException
 from app.models.item_db import ItemDB
 from app.models.item_model import Item
 
+from app.utils.logging import logger
+logger.info("Creating item with name=%s", Item.name)
+
+
 def create_item_service(db: Session, item: Item): # Working
     db_item = ItemDB(
         name=item.name,
