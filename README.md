@@ -11,7 +11,7 @@ PostgreSQL Database
 Reliable relational storage for users and items.
 
 Alembic Migrations
-Version-controlled schema changes for production safety.
+Alembic is used to manage database schema changes in a controlled way. Instead of manually modifying tables, we create migration files that describe the change(Like adding/deleting a column later) These migrations can then be applied consistently across development, testing, and production environments.
 
 Modular Architecture
 Clean separation of concerns using Routers → Services → Models.
