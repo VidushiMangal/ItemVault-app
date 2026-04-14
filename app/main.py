@@ -13,8 +13,10 @@ users_db.Base.metadata.create_all(bind=engine)
 
 app=FastAPI()
 
+#DATABASE_URL = os.getenv("DATABASE_URL")
 DEBUG = os.getenv("DEBUG", "false").lower() == "true"
-app = FastAPI(debug=DEBUG)
+
+#app = FastAPI(debug=DEBUG)
 
 app.include_router(items.router)
 app.include_router(auth.router)

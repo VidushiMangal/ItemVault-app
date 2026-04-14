@@ -36,3 +36,6 @@ def authenticate_user_service(db: Session, email: str, password: str) -> str:
     )
     return access_token
 
+def list_user_service(db: Session):
+    return db.query(UserDB).all()
+    
