@@ -1,110 +1,116 @@
-📦 ItemVault_app
+# 📦 ItemVault_app
 
-A production-ready FastAPI backend featuring secure JWT authentication, PostgreSQL integration, structured Alembic migrations, and a clean service-layer architecture. ItemVault_app provides robust item management with full CRUD operations, advanced filtering, sorting, and pagination — designed to reflect real-world backend engineering practices.
+A production-ready FastAPI backend featuring secure JWT authentication, PostgreSQL integration, structured Alembic migrations, and a clean service-layer architecture.ItemVault_app provides robust item management with full CRUD operations, advanced filtering, sorting, and pagination — designed to reflect real-world backend engineering practices.
 
-🚀 Features
+# 🌍 Live Deployment
 
-JWT Authentication
-Secure login & registration with hashed passwords.
+🚀 **Live API:** https://your-app-name.onrender.com
+📘 **Swagger Docs:** https://itemvault-app.onrender.com/docs
 
-PostgreSQL Database
-Reliable relational storage for users and items.
+Deployed using: 
+* Render (Backend Hosting)
+* Neon (Serverless PostgreSQL)
 
-Alembic Migrations
-Alembic is used to manage database schema changes in a controlled way. Instead of manually modifying tables, we create migration files that describe the change(Like adding/deleting a column later) These migrations can then be applied consistently across development, testing, and production environments.
+# 🚀 Features
 
-Modular Architecture
-Clean separation of concerns using Routers → Services → Models.
+**JWT Authentication**: Secure login & registration with hashed passwords.
 
-CRUD Operations for Items
-Create, read, update, and delete item records.
+**PostgreSQL Database**: Cloud-hosted database using Neon (serverless PostgreSQL).
 
-Advanced Query Features
-Filtering, sorting, and pagination support for flexible data retrieval.
+**Alembic Migrations**:Database schema changes are managed using Alembic migrations, ensuring consistency across development and production environments.
 
-Environment Variable Configuration
-Sensitive settings managed through .env file.
+**Modular Architecture**:Clean separation of concerns using:Routers → Services → Models
 
-Basic Logging
-Structured logs for debugging and production observability.
+**CRUD Operations**:Create, read, update, and delete item records.
 
-🛠️ Tech Stack
+**Advanced Query Features**:Filtering, sorting, and pagination support.
 
-Python 3.10+
+**Environment-Based Configuration**:Sensitive data managed via environment variables (production-ready approach).
 
-FastAPI
+**Logging**:Basic logging for debugging and monitoring.
 
-SQLAlchemy
+# 🛠️ Tech Stack
 
-PostgreSQL
+* Python 3.10+
+* FastAPI
+* SQLAlchemy
+* PostgreSQL (Neon)
+* Alembic
+* Passlib (password hashing)
+* Python-Jose (JWT)
 
-Alembic
+# 🔐 Authentication Flow
 
-Passlib (for hashing)
+1. Register a new user → `/auth/register`
+2. Login → `/auth/login` → receive JWT token
+3. Use token:
+   Authorization: Bearer <token>
+4. Access protected routes
 
-Python-Jose (for JWT)
+# 🧪 API Endpoints
 
-🔐 Authentication Flow
+## 📦 Items Module
 
-Register a new user with /auth/register.
+* POST `/items` → Create item
+* GET `/items` → List items
+* GET `/items/{id}` → Get item
+* PUT `/items/{id}` → Update item
+* DELETE `/items/{id}` → Delete item
 
-Login using /auth/login to receive a JWT access token.
+### Advanced:
 
-Use Authorization: Bearer <token> to access protected item routes.
+* GET `/items_filter`
+* GET `/items_sort`
+* GET `/items_advanced`
 
-🧪 API Capabilities
+## 🔐 Auth Module
 
-Items Module
+* POST `/auth/register`
+* POST `/auth/login`
 
-POST /items → Create item
+# ⚙️ Environment Variables
 
-GET /items → List all items
+Set the following variables in your environment (Render / local):
 
-GET /items/{id} → Get item by ID
-
-PUT /items/{id} → Update item
-
-DELETE /items/{id} → Delete item
-
-GET /items_filter → Filter items
-
-GET /items_sort → Sort items
-
-GET /items_advanced → Filter + Sort + Pagination
-Auth Module
-
-POST /auth/register
-
-POST /auth/login
-
-⚙️ Environment Variables (.env)
-
-Your root .env file should include:
-
-DATABASE_URL=postgresql://postgres:<password>@localhost/<dbname>
-
-SECRET_KEY=<your_secret_key>
-
+DATABASE_URL=your_neon_connection_string
+SECRET_KEY=your_secret_key
+ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=60
 
+⚠️ Never commit secrets to GitHub.
 
-Never commit .env to GitHub.
+# ▶️ Running Locally
 
-▶️ Running the App
-
-Start the FastAPI server:
 uvicorn app.main:app --reload
+Open:
+http://127.0.0.1:8000/docs
 
-http://127.0.0.1:8000
+# ☁️ Deployment
 
-📘 Database Migrations
+This project is deployed using:
+* Render for backend hosting
+* Neon for PostgreSQL database
 
-To generate a new migration:
+Steps:
+1. Push code to GitHub
+2. Connect repository to Render
+3. Add environment variables
+4. Deploy using Uvicorn start command
 
+# 📘 Database Migrations
+
+Create migration:
 alembic revision --autogenerate -m "description"
 
-
-To apply migrations:
-
+Apply migration:
 alembic upgrade head
 
+# 🧠 Key Highlights
+
+* Production-ready FastAPI backend
+* Real cloud deployment (Render + Neon)
+* Secure authentication system
+* Clean scalable architecture
+* Interview-ready project
+
+---
